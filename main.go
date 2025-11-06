@@ -1,12 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func main() {
-	a := 1.0 / 3
-	fmt.Println(a)
-	fmt.Printf("%v\n", a)
-	fmt.Printf("%f\n", a)
-	fmt.Printf("%.2f\n", a)   //.2 - после запятой 2 числа
-	fmt.Printf("%4.2f\n", a) // 10 пробелов в начале
+	/*
+		01 - месяц (январь)
+		02 - число (2 января)
+		03 - час (2 января 3 часа)
+		04 - минута (2 января 3 часа 4 минуты)
+		05 - секунда (2 января 3 часа 4 минуты 5 секунд)
+		06 - год (2 января 3 часа 4 минуты 2006 года)
+
+		any languages: fmt.Printf("%h:%m:%s")
+	*/
+	template := "2006-01-02"
+	myDate := "2025-11-06"
+
+	myTime, err := time.Parse(template, myDate)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Printf("%T", myTime)
+
 }
